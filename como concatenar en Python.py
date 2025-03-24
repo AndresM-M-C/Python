@@ -1,0 +1,5 @@
+x1=(input("dame un numero"))
+x2=(input ("dame otro numero))
+x3=(input("Dame un tercer numero"))
+concatena=str(x1) + str(x2) + str(x3)
+print("El resultado concatenado es", concatena)
