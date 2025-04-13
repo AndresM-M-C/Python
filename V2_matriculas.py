@@ -1,17 +1,19 @@
 import datetime
-fecha=datetime.datetime.now()
-año=datetime.datetime.strftime(fecha, "%Y")
+fecha = datetime.datetime.now()
+año = fecha.strftime("%Y")
+
 cont = 1
 
 while True:
     print("\nCrear matrícula")
+    
     print("Periodo:")
     print("1. Transferido de otra institucion")
     print("2. Admisión")
     periodo = int(input("Ingrese el periodo: "))
 
     while periodo != 1 and periodo != 2:
-        print("Numero de periodo inválido. Por favor, ingrese 1 o 2.")
+        print("Número de periodo inválido. Por favor, ingrese 1 o 2.")
         periodo = int(input("Ingrese el periodo: "))
 
     print("\nCarreras:")
@@ -26,11 +28,18 @@ while True:
     carrera = int(input("Ingrese el número de carrera: "))
 
     while carrera < 1 or carrera > 8:
-        print("Numero de carrera invalido, ingrese un número entre 1 y 8.")
+        print("Número de carrera inválido, ingrese un número entre 1 y 8.")
         carrera = int(input("Ingrese el número de carrera: "))
 
-    matricula = f"{año}{periodo}{carrera}{cont:03d}"
-    print(f"Matrícula creada: {matricula}")
+    if cont < 10:
+        Secuencia = "00" + str(cont)
+    elif cont < 100:
+        Secuencia = "0" + str(cont)
+    else:
+        Secuencia = str(cont)
+
+    matricula = f"{año}{periodo}{carrera}{Secuencia}"
+    print(f"\nMatrícula creada: {matricula}")
     cont += 1
 
     respuesta = input("\n¿Desea crear otra matrícula? (s/n): ")
